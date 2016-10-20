@@ -10,6 +10,18 @@
         },
         "databaseName": {
             "value": "SampleDB"
+        },
+        "skuName": {
+            "value": "S1"
+        },
+        "edition": {
+            "value": "Basic"
+        },
+        "redis-chinzillaName": {
+            "value": "chinzillaredis"
+        },
+        "redis-chinzillaSKUName": {
+            "value": "Basic"
         }
     }
 }

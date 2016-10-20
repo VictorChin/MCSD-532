@@ -76,11 +76,62 @@
       "metadata": {
         "description": "Describes the performance level for Edition"
       }
-    }
+    },
+      "redis-chinzillaName": {
+          "type": "string",
+          "minLength": 1
+      },
+      "redis-chinzillaSKUName": {
+          "type": "string",
+          "allowedValues": [
+              "Basic",
+              "Standard"
+          ],
+          "defaultValue": "Standard"
+      },
+      "redis-chinzillaSKUFamily": {
+          "type": "string",
+          "allowedValues": [
+              "C"
+          ],
+          "defaultValue": "C"
+      },
+      "redis-chinzillaSKUCapacity": {
+          "type": "int",
+          "allowedValues": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+          ],
+          "defaultValue": 0
+      },
+      "redis-chinzillaRedisVersion": {
+          "type": "string",
+          "allowedValues": [
+              "2.8"
+          ],
+          "defaultValue": "2.8"
+      },
+      "ministorage99Type": {
+          "type": "string",
+          "defaultValue": "Standard_LRS",
+          "allowedValues": [
+              "Standard_LRS",
+              "Standard_ZRS",
+              "Standard_GRS",
+              "Standard_RAGRS",
+              "Premium_LRS"
+          ]
+      }
   },
   "variables": {
     "webSiteName": "[concat('webSite', uniqueString(resourceGroup().id))]",
-    "sqlserverName": "[concat('sqlserver', uniqueString(resourceGroup().id))]"
+    "sqlserverName": "[concat('sqlserver', uniqueString(resourceGroup().id))]",
+      "ministorage99Name": "[concat('chin', uniqueString(resourceGroup().id))]"
   },
   "resources": [
     {
@@ -395,6 +446,37 @@
       "properties": {
         "ApplicationId": "[variables('webSiteName')]"
       }
-    }
+    },
+      {
+          "name": "[parameters('redis-chinzillaName')]",
+          "type": "Microsoft.Cache/Redis",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2014-04-01-preview",
+          "dependsOn": [ ],
+          "tags": {
+              "displayName": "redis-chinzilla"
+          },
+          "properties": {
+              "sku": {
+                  "name": "[parameters('redis-chinzillaSKUName')]",
+                  "family": "[parameters('redis-chinzillaSKUFamily')]",
+                  "capacity": "[parameters('redis-chinzillaSKUCapacity')]"
+              },
+              "redisVersion": "[parameters('redis-chinzillaRedisVersion')]"
+          }
+      },
+      {
+          "name": "[variables('chinstore')]",
+          "type": "Microsoft.Storage/storageAccounts",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2015-06-15",
+          "dependsOn": [ ],
+          "tags": {
+              "displayName": "ministorage99"
+          },
+          "properties": {
+              "accountType": "[parameters('ministorage99Type')]"
+          }
+      }
   ]
 }

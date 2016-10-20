@@ -1,14 +1,8 @@
 $ServicePlanName = "DemoPlan"
 $WebAppName = "DemoApp"
 $ResourceGroupName = "SampleRG"
-$WebAppLocation = "northeurope"
+$WebAppLocation = "North Europe"
 $ErrorActionPreference = "Stop"
-
-# Step 1: Create the application service plan
-Create-AppServicePlan
-
-# Step 2: Create the web app using the service plan name.
-Create-AzureRmWebApp
 
 function Create-AzureRmWebApp()
 {
@@ -30,3 +24,9 @@ function Create-AppServicePlan()
         $servicePlan = New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroupName -Name $ServicePlanName -Location $WebAppLocation -Tier Standard -NumberofWorkers 1 -WorkerSize "Small"
     }
 }
+
+# Step 1: Create the application service plan
+Create-AppServicePlan
+
+# Step 2: Create the web app using the service plan name.
+Create-AzureRmWebApp
