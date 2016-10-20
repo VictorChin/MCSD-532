@@ -466,7 +466,7 @@
           }
       },
       {
-          "name": "[variables('chinstore')]",
+          "name": "[variables('ministorage99Name')]",
           "type": "Microsoft.Storage/storageAccounts",
           "location": "[resourceGroup().location]",
           "apiVersion": "2015-06-15",
