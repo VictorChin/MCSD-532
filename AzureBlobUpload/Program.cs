@@ -26,7 +26,7 @@ namespace AzureBlobUpload
             // Retrieve a reference to a container.
             CloudBlockBlob blockBlob = container.GetBlockBlobReference("Hello.txt");
             // Create the container if it doesn't already exist.
-            //container.CreateIfNotExists();
+            container.CreateIfNotExists();
             // Create or overwrite the "myblob" blob with contents from a local file.
             using (var fileStream = System.IO.File.OpenRead(@"Hello.txt"))
             {
