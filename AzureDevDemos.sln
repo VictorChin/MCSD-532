@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TableStorage", "Azure-Stora
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueStorage", "Azure-Storage-Queue\QueueStorage\QueueStorage.csproj", "{2F53D824-D081-4281-81E5-38C7B35C965B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlobStorage", "Azure-Storage-Blob\BlobStorage\BlobStorage.csproj", "{61EF4B90-9020-4C38-8FED-D248246BE9CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{2F53D824-D081-4281-81E5-38C7B35C965B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F53D824-D081-4281-81E5-38C7B35C965B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F53D824-D081-4281-81E5-38C7B35C965B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61EF4B90-9020-4C38-8FED-D248246BE9CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61EF4B90-9020-4C38-8FED-D248246BE9CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61EF4B90-9020-4C38-8FED-D248246BE9CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61EF4B90-9020-4C38-8FED-D248246BE9CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -112,5 +118,6 @@ Global
 		{DA8B60A3-DFBC-4205-8C5C-BA5AF545584B} = {9C840BC4-0B5D-4DF4-8E1C-A4AB97C1243C}
 		{E791A166-8224-4F86-A06B-0B699643C9EC} = {7F6BF303-85B1-49DA-9575-AFF55B9A1384}
 		{2F53D824-D081-4281-81E5-38C7B35C965B} = {7F6BF303-85B1-49DA-9575-AFF55B9A1384}
+		{61EF4B90-9020-4C38-8FED-D248246BE9CA} = {7F6BF303-85B1-49DA-9575-AFF55B9A1384}
 	EndGlobalSection
 EndGlobal

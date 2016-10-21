@@ -16,6 +16,7 @@
 namespace TableStorage.Model
 {
     using Microsoft.WindowsAzure.Storage.Table;
+    using System;
 
     /// <summary>
     /// Define a Customer entity for demonstrating the Table Service. For the purposes of the sample we use the 
@@ -52,6 +53,8 @@ namespace TableStorage.Model
         /// <value>
         /// The email address.
         /// </value>
+        /// 
+        
         public string Email { get; set; }
 
         /// <summary>

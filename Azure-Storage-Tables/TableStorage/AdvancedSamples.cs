@@ -467,18 +467,18 @@ namespace TableStorage
             new TableQuery<CustomerEntity>().Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, partitionKey));
 
                 TableContinuationToken token = null;
-
-                // Read entities from each query segment.
-                do
-                {
+                //partitionScanQuery.TakeCount
+                //// Read entities from each query segment.
+                //do
+                //{
                     TableQuerySegment<CustomerEntity> segment = await table.ExecuteQuerySegmentedAsync(partitionScanQuery, token);
                     token = segment.ContinuationToken;
                     foreach (CustomerEntity entity in segment)
                     {
                         Console.WriteLine("Customer: {0},{1}\t{2}\t{3}", entity.PartitionKey, entity.RowKey, entity.Email, entity.PhoneNumber);
                     }
-                }
-                while (token != null);
+                //}
+                //while (token != null);
             }
             catch (StorageException e)
             {
